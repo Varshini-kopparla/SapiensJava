@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="userInfo" class="SpringDemo.POC6.UserInfo">
+		<property name="email" value="varshini@email.com" />
+		<property name="password" value="password123" />
+	</bean>
+	
+	<bean id="productDashboard" class="SpringDemo.POC6.ProductDashboard">
+        <property name="product_id" value="121"/>
+        <property name="product_discription" value="Sketch Book"/>
+        <property name="price" value="19.99"/>
+    </bean>
+    
+    <bean id="productCart" class="SpringDemo.POC6.ProductCart">
+        <property name="quantity" value="3"/>
+    </bean>
+    
+    <bean id="calculator" class="SpringDemo.POC6.ProductPriceCalculator">
+        <!-- Inject dependencies: ProductDashboard and ProductCart -->
+        <property name="productDashboard" ref="productDashboard"/>
+        <property name="productCart" ref="productCart"/>
+    </bean>
+
+	<bean id="cartFileStorage" class="SpringDemo.POC6.CartFileStorage">
+		<property name="filePath" value="C:\Users\varshini.kopparla\eclipse-workspace\POC6\src\main\java\SpringDemo\POC6\cart_summary.txt" />
+	</bean>
+
+</beans>
